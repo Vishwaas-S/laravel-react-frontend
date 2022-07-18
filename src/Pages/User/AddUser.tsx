@@ -50,97 +50,95 @@ function AddUser() {
 
   return (
     <Layout>
-      <div>
-        <Row justify="center" align="middle" style={{ height: "76vh" }}>
-          <Col
-            sm={8}
+      <Row justify="center" align="middle" style={{ height: "76vh" }}>
+        <Col
+          sm={8}
+          style={{
+            borderRadius: "10px",
+            boxShadow: "1px 1px 14px 1px lightgrey",
+            padding: "30px",
+          }}
+        >
+          <h1
             style={{
-              borderRadius: "10px",
-              boxShadow: "1px 1px 14px 1px lightgrey",
-              padding: "30px",
+              textAlign: "center",
+              marginBottom: "30px",
+              fontWeight: "bold",
             }}
           >
-            <h1
-              style={{
-                textAlign: "center",
-                marginBottom: "30px",
-                fontWeight: "bold",
-              }}
+            Add User
+          </h1>
+          <Form
+            name="basic"
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+            layout="vertical"
+          >
+            <Form.Item
+              label="Full Name"
+              name="fullname"
+              rules={[{ required: true, message: "Please Input Full Name!" }]}
             >
-              Add User
-            </h1>
-            <Form
-              name="basic"
-              initialValues={{ remember: true }}
-              onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
-              autoComplete="off"
-              layout="vertical"
+              <Input />
+            </Form.Item>
+
+            <Form.Item
+              label="Email"
+              name="email"
+              rules={[{ required: true, message: "Please Input Email!" }]}
             >
-              <Form.Item
-                label="Full Name"
-                name="fullname"
-                rules={[{ required: true, message: "Please Input Full Name!" }]}
-              >
-                <Input />
-              </Form.Item>
+              <Input />
+            </Form.Item>
 
-              <Form.Item
-                label="Email"
-                name="email"
-                rules={[{ required: true, message: "Please Input Email!" }]}
-              >
-                <Input />
-              </Form.Item>
+            <Form.Item
+              name="roles"
+              label="Roles"
+              rules={[
+                {
+                  required: true,
+                  message: "Please select atleast one role!",
+                  type: "array",
+                },
+              ]}
+            >
+              <Select mode="multiple" placeholder="Please select role">
+                {roles?.map((role) => {
+                  return (
+                    <Select.Option value={role.id}>{role.name}</Select.Option>
+                  );
+                })}
+              </Select>
+            </Form.Item>
 
-              <Form.Item
-                name="roles"
-                label="Roles"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please select atleast one role!",
-                    type: "array",
-                  },
-                ]}
-              >
-                <Select mode="multiple" placeholder="Please select role">
-                  {roles?.map((role) => {
-                    return (
-                      <Select.Option value={role.id}>{role.name}</Select.Option>
-                    );
-                  })}
-                </Select>
-              </Form.Item>
-
-              <Form.Item style={{ marginBottom: "0px" }}>
-                <Row justify="space-between">
-                  <Col xs={11}>
-                    <Button
-                      onClick={() => nevigate("/")}
-                      type="ghost"
-                      block
-                      style={{ marginRight: "15px", borderRadius: "5px" }}
-                    >
-                      Cancel
-                    </Button>
-                  </Col>
-                  <Col xs={11}>
-                    <Button
-                      style={{ borderRadius: "5px" }}
-                      type="primary"
-                      htmlType="submit"
-                      block
-                    >
-                      Submit
-                    </Button>
-                  </Col>
-                </Row>
-              </Form.Item>
-            </Form>
-          </Col>
-        </Row>
-      </div>
+            <Form.Item style={{ marginBottom: "0px" }}>
+              <Row justify="space-between">
+                <Col xs={11}>
+                  <Button
+                    onClick={() => nevigate("/")}
+                    type="ghost"
+                    block
+                    style={{ marginRight: "15px", borderRadius: "5px" }}
+                  >
+                    Cancel
+                  </Button>
+                </Col>
+                <Col xs={11}>
+                  <Button
+                    style={{ borderRadius: "5px" }}
+                    type="primary"
+                    htmlType="submit"
+                    block
+                  >
+                    Submit
+                  </Button>
+                </Col>
+              </Row>
+            </Form.Item>
+          </Form>
+        </Col>
+      </Row>
     </Layout>
   );
 }
