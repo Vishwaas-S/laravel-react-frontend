@@ -4,6 +4,7 @@ import type { ColumnsType } from "antd/es/table";
 import { Button, Col, PageHeader, Row, Table, Tag } from "antd";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./user.scss";
 
 interface DataType {
   key: string;
@@ -81,14 +82,14 @@ function User() {
 
   return (
     <Layout>
-      <Row style={{ display: "flex", justifyContent: "center" }}>
+      <Row justify="center">
         <Col sm={18}>
           <PageHeader
             title="Users"
             className="site-page-header"
             extra={[
               <Button
-                style={{ borderRadius: "5px" }}
+                className="button"
                 onClick={() => nevigate("/user/add")}
                 type="primary"
               >
@@ -101,9 +102,7 @@ function User() {
           />
         </Col>
       </Row>
-      <Row
-        style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
-      >
+      <Row justify="center" className="tableContent">
         <Col sm={18}>
           <Table
             columns={columns}
@@ -115,10 +114,7 @@ function User() {
               onChange: (page, pageSize) => handlePagination(page, pageSize),
               style: { marginRight: "20px" },
             }}
-            style={{
-              borderRadius: "10px",
-              boxShadow: "1px 1px 14px 1px lightgrey",
-            }}
+            className="boxshadow"
           />
         </Col>
       </Row>

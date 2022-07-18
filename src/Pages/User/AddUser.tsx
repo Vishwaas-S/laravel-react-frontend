@@ -3,6 +3,7 @@ import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../../Layout/index";
+import "./user.scss";
 
 const roles = [
   {
@@ -50,24 +51,9 @@ function AddUser() {
 
   return (
     <Layout>
-      <Row justify="center" align="middle" style={{ height: "76vh" }}>
-        <Col
-          sm={8}
-          style={{
-            borderRadius: "10px",
-            boxShadow: "1px 1px 14px 1px lightgrey",
-            padding: "30px",
-          }}
-        >
-          <h1
-            style={{
-              textAlign: "center",
-              marginBottom: "30px",
-              fontWeight: "bold",
-            }}
-          >
-            Add User
-          </h1>
+      <Row justify="center" align="middle" className="addContent">
+        <Col sm={8} className="boxshadow addContentChild">
+          <h1 className="heading">Add User</h1>
           <Form
             name="basic"
             initialValues={{ remember: true }}
@@ -112,24 +98,24 @@ function AddUser() {
               </Select>
             </Form.Item>
 
-            <Form.Item style={{ marginBottom: "0px" }}>
+            <Form.Item>
               <Row justify="space-between">
                 <Col xs={11}>
                   <Button
                     onClick={() => nevigate("/")}
                     type="ghost"
                     block
-                    style={{ marginRight: "15px", borderRadius: "5px" }}
+                    className="button"
                   >
                     Cancel
                   </Button>
                 </Col>
                 <Col xs={11}>
                   <Button
-                    style={{ borderRadius: "5px" }}
                     type="primary"
                     htmlType="submit"
                     block
+                    className="button"
                   >
                     Submit
                   </Button>
