@@ -8,12 +8,6 @@ Clone Repository via Git:
 
     cd laravel-react-frontend
 
-    Rename .env.example -> .env
-
-    Change variable in .env file
-
-        REACT_APP_BACKEND_URL = http://127.0.0.1:8000/api/
-
 You can install the package via npm:
 
     npm install
