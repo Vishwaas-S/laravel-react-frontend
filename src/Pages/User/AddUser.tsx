@@ -1,13 +1,4 @@
-import {
-  Button,
-  Col,
-  Form,
-  Input,
-  notification,
-  Row,
-  Select,
-  Typography,
-} from "antd";
+import { Button, Col, Form, Input, notification, Row, Select } from "antd";
 import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -37,7 +28,7 @@ function AddUser() {
 
   const onFinish = (values: any) => {
     axios
-      .post(process.env.REACT_APP_BACKEND_URL + "user/add", values)
+      .post(process.env.REACT_APP_BACKEND_URL + "users/add", values)
       .then((data) => {
         notification.success({
           message: data?.data?.meta?.message,
