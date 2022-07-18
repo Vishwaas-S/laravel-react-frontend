@@ -71,7 +71,6 @@ function User() {
   }, []);
 
   const handlePagination = (page: number, pageSize: number) => {
-    console.log(page, pageSize);
     axios
       .get(process.env.REACT_APP_BACKEND_URL + `users?page=${page}`)
       .then(({ data }: any) => {
